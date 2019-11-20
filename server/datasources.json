@@ -1,0 +1,8 @@
+{
+  "db": {
+    "url": "mongodb+srv://lmoyano:AAAA5E3tzUrJC6Q@mycluster01-dw2im.mongodb.net/test?retryWrites=true&w=majority",
+    "name": "db",
+    "connector": "mongodb",
+    "allowExtendedOperators": true
+  }
+}
