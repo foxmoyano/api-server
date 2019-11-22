@@ -1,28 +1,23 @@
 {
-  "name": "procedure",
+  "name": "station",
   "base": "PersistedModel",
-  "strict": false,
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
-  "forceId": false,
   "properties": {
-    "folio": {
-      "type": "number",
-      "required": true
-    },
-    "userId": {
-      "type": "user",
+    "description": {
+      "type": "string",
       "required": true
     }
   },
   "validations": [],
   "relations": {
-    "user": {
-      "type": "belongsTo",
-      "model": "user",
-      "foreignKey": "userId"
+    "units": {
+      "type": "hasMany",
+      "model": "unit",
+      "foreignKey": "stationId",
+      "primaryKey": "id"
     }
   },
   "acls": [
@@ -31,13 +26,6 @@
       "principalType": "ROLE",
       "principalId": "$everyone",
       "permission": "DENY"
-    },
-    {
-      "accessType": "EXECUTE",
-      "principalType": "ROLE",
-      "principalId": "admin",
-      "permission": "ALLOW",
-      "property": "getProcedures"
     },
     {
       "accessType": "*",
@@ -51,8 +39,8 @@
       "principalType": "ROLE",
       "principalId": "$authenticated",
       "permission": "ALLOW",
-      "property": "procedureGet"
-    }
+      "property": "getStations"
+    }    
   ],
   "methods": {}
 }

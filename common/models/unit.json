@@ -1,28 +1,26 @@
 {
-  "name": "procedure",
+  "name": "unit",
   "base": "PersistedModel",
-  "strict": false,
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
-  "forceId": false,
   "properties": {
-    "folio": {
-      "type": "number",
+    "description": {
+      "type": "string",
       "required": true
     },
-    "userId": {
-      "type": "user",
+    "stationId": {
+      "type": "number",
       "required": true
     }
   },
   "validations": [],
   "relations": {
-    "user": {
+    "region": {
       "type": "belongsTo",
-      "model": "user",
-      "foreignKey": "userId"
+      "model": "station",
+      "foreignKey": "stationId"
     }
   },
   "acls": [
@@ -31,13 +29,6 @@
       "principalType": "ROLE",
       "principalId": "$everyone",
       "permission": "DENY"
-    },
-    {
-      "accessType": "EXECUTE",
-      "principalType": "ROLE",
-      "principalId": "admin",
-      "permission": "ALLOW",
-      "property": "getProcedures"
     },
     {
       "accessType": "*",
@@ -51,8 +42,8 @@
       "principalType": "ROLE",
       "principalId": "$authenticated",
       "permission": "ALLOW",
-      "property": "procedureGet"
-    }
+      "property": "unitGet"
+    }    
   ],
   "methods": {}
 }

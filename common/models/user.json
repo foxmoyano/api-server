@@ -7,10 +7,10 @@
   },
   "emailVerificationRequired": false,
   "properties": {
-      "name": {
-          "type": "string",
-          "required": true
-      }    
+    "name": {
+      "type": "string",
+      "required": true
+    }
   },
   "validations": [],
   "relations": {
@@ -26,7 +26,7 @@
       "foreignKey": "principalId",
       "through": "RoleMapping",
       "primaryKey": "id"
-    }    
+    }
   },
   "acls": [
     {
@@ -69,14 +69,7 @@
       "principalId": "admin",
       "permission": "ALLOW",
       "property": "active"
-    },
-    {
-      "accessType": "*",
-      "principalType": "ROLE",
-      "principalId": "$everyone",
-      "permission": "ALLOW",
-      "property": "procedureGet"
-    }    
+    }
   ],
   "methods": {}
 }

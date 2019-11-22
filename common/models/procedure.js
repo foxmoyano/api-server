@@ -21,34 +21,22 @@ module.exports = function(Procedure) {
         });
     };
 
-    Procedure.beforeRemote('replaceOrCreate', function (ctx, inst, next) {
-    	var userId = ctx.req.accessToken.userId.toString();
-		ctx.req.body.fechaRecepcion = new Date();
-        ctx.req.body.userId = userId;
-        next();
-    });
-
     Procedure.remoteMethod(
         'procedureGet',
         {
             accepts: [
-                {arg: 'userId', type: 'any', required: true},
-                {arg: "options", type: "object", http: "optionsFromRequest"}
+                {arg: 'userId', type: 'any', required: true}
             ],
             returns: [{arg: 'result', type: 'object', root: true}],
-            http: {path: '/:userId', verb: 'get'}
+            http: {path: '/getby/:userId', verb: 'get'}
         }
-    );    
+    );
 
-    Procedure.procedureGet = function (userId, options, done) {
-        //var Procedure = Procedure.app.models.Commentary;
+    Procedure.procedureGet = function (userId, done) {        
         var pFind = {
             "where": {
-                "userId": userId
-            },
-            "include": [{
-                "relation": "user",
-            }]
+                "userId" : userId
+            }
         };
         Procedure.find(pFind, function (err, procedures) {
             if (err) {
@@ -58,6 +46,13 @@ module.exports = function(Procedure) {
 
             done(null, procedures);
         });
-    };    
+    };
+
+    Procedure.beforeRemote('replaceOrCreate', function (ctx, inst, next) {
+    	var userId = ctx.req.accessToken.userId.toString();
+		ctx.req.body.fechaRecepcion = new Date();
+        ctx.req.body.userId = userId;
+        next();
+    });
 
 };

@@ -43,5 +43,21 @@
   "procedure": {
     "dataSource": "db",
     "public": true
+  },
+  "detainee": {
+    "dataSource": "db",
+    "public": true
+  },
+  "crime": {
+    "dataSource": "db",
+    "public": true
+  },
+  "unit": {
+    "dataSource": "db",
+    "public": true
+  },
+  "station": {
+    "dataSource": "db",
+    "public": true
   }
 }
