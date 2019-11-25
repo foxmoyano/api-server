@@ -15,7 +15,15 @@
     "userId": {
       "type": "user",
       "required": true
-    }
+    },
+    "initId": {
+      "type": "unit",
+      "required": true
+    },
+    "crimeId": {
+      "type": "crime",
+      "required": true
+    }    
   },
   "validations": [],
   "relations": {
@@ -23,7 +31,17 @@
       "type": "belongsTo",
       "model": "user",
       "foreignKey": "userId"
-    }
+    },
+    "unit": {
+      "type": "belongsTo",
+      "model": "unit",
+      "foreignKey": "unitId"
+    },
+    "crime": {
+      "type": "belongsTo",
+      "model": "crime",
+      "foreignKey": "crimeId"
+    }    
   },
   "acls": [
     {

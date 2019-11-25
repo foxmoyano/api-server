@@ -11,9 +11,17 @@ module.exports = function(Procedure) {
     );
 
     Procedure.getProcedures = function (done) {
-        Procedure.find(undefined, function (err, procedures) {
+    	var pFind = {
+    		"include": [
+    			{
+    				"relation" : "crime"
+    			}
+    		]
+    	};
+
+        Procedure.find(pFind, function (err, procedures) {
             if (err) {
-                Logger.error('Procedure.getProcedures -> Procedure.find', err);
+                Logger.error('Procedure.getProcedures -> Procedure.find: ' + JSON.stringify(pFind) , err);
                 return done(err);
             }
 
@@ -36,8 +44,16 @@ module.exports = function(Procedure) {
         var pFind = {
             "where": {
                 "userId" : userId
-            }
+            },
+    		"include": [
+    			{
+    				"relation": "crime"
+    			}
+    		]            
         };
+
+        console.log(pFind);
+        
         Procedure.find(pFind, function (err, procedures) {
             if (err) {
                 Logger.error('Procedure.procedureGet -> Procedure.find:' + JSON.stringify(pFind), err);

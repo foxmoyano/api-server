@@ -38,26 +38,38 @@
   },
   "user": {
     "dataSource": "db",
-    "public": true
+    "public": true,
+    "$promise": {},
+    "$resolved": true    
   },
   "procedure": {
     "dataSource": "db",
-    "public": true
+    "public": true,
+    "$promise": {},
+    "$resolved": true    
   },
   "detainee": {
     "dataSource": "db",
-    "public": true
+    "public": true,
+    "$promise": {},
+    "$resolved": true    
   },
   "crime": {
     "dataSource": "db",
-    "public": true
+    "public": true,
+    "$promise": {},
+    "$resolved": true
   },
   "unit": {
     "dataSource": "db",
-    "public": true
+    "public": true,
+    "$promise": {},
+    "$resolved": true
   },
   "station": {
     "dataSource": "db",
-    "public": true
+    "public": true,
+    "$promise": {},
+    "$resolved": true
   }
 }
